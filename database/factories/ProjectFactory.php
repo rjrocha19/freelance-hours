@@ -18,12 +18,12 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake() -> word(5),
-            'description' => htmlspecialchars(fake() -> randomHtml()),
-            'end_at'=> fake() -> dateTimeBetween('now', '+3 days'),
-            'status'=> fake()->randomElement(['open', 'closed']),
-            'tech_stack'=> fake()->randomElement(['php', 'laravel', 'javascript', 'react', 'vue', 'angular', 'html', 'css', 'tailwind', 'bootstrap', 'sql', 'mongodb', 'postgresql', 'mysql', 'git', 'github', 'gitlab', 'bitbucket', 'aws', 'digitalocean']),
-            'created_by'=> User::factory(),
+            'title' => collect(fake()->words(5))->join(' '),
+            'description' => fake()->randomHtml(),
+            'ends_at' => fake()->dateTimeBetween('now', '+ 3 days'),
+            'status' => fake()->randomElement(['open', 'closed']),
+            'tech_stack' => fake()->randomElements(['nodejs', 'react', 'javascript', 'vite', 'nextjs'], random_int(1, 5)),
+            'created_by' => User::factory(),
             
         ];
     }
