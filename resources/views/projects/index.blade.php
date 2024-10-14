@@ -1,5 +1,3 @@
 <x-layouts.app>
-    <a href="{{ route ('projects.show', 1) }}">
-        <livewire:projects.index />
-    </a>
+    <livewire:projects.index />
 </x-layouts.app>
